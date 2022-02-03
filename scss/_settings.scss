@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+  
+.container{
+    max-width: $container;
+    margin: 0 auto;
+    padding: 0 $containerPadding;
+}
+  
+.wrapper{
+    position: relative;
+    overflow: hidden;
+}
+  
+html{
+    font-size: $defaultFontSize;
+}
+  
+body{
+    font-family: "Roboto_slab", serif;
+    color: $lightTextColor;
+    font-size: 1rem;
+}
+  
+a{
+    text-decoration: none;
+}
+  
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+h2, h3{
+    font-weight: 700;
+    color: $textColor;
+    text-align: center;
+    font-family: "Montserrat", serif;
+}
+
+.section-title{
+    font-size: rem(40px);
+    text-transform: uppercase;
+}
+
+h3{
+    font-size: rem(18px);
+    margin-bottom: 20px;
+}
+
+.sub-title{
+    margin-top: 25px;
+    font-family: "Droid", serif;
+    font-style: italic;
+    font-size: rem(16px);
+    text-align: center;
+}
+
+input, textarea, button{
+    font-family: "Montserrat", serif;
+}

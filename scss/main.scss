@@ -1,0 +1,143 @@
+// базовые подключения
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+// подключения компонентов страницы
+@import "./components/header";
+
+.services{
+    padding: 120px 0;
+    .services-list{
+        @include flex-wrap;
+        gap: 55px;
+        text-align: center;
+        margin-top: 80px;
+        @media(max-width:$md2){
+            justify-content: center;
+        }
+    }
+}
+.services-item{
+    width: calc(33.33% - 37px);
+    @media(max-width:$md2){
+        width: calc(50% - 28px);
+        &:last-child{
+            margin-top: 54px;
+        }
+    }
+    @media(max-width:$md3){
+        width: 100%;
+        margin-top: 54px;
+        padding: 0;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+    
+
+    .img-wrap{
+        @include flex(inline-flex, center, center);
+        @include size(80px, 80px);
+        margin-bottom: 30px;
+        padding: 20px;
+        border-radius: 50%;
+        border: 4px solid $primary;
+        img{
+            width: 100%;
+            transition: transform .3s;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+    p{
+        line-height: 1.45;
+        letter-spacing: .7px;
+    }
+}
+
+// contact
+
+.contact{
+    padding: 100px 0;
+    @include image-set("../img/map");
+    @include bg-cover();
+    .section-title{
+        color: #fff;
+    }
+}
+
+form{
+    margin-top: 80px;
+    text-align: center;
+    .flex-row{
+        display: flex;
+        gap: 30px;
+        input{
+            display: block;
+            width: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            color: $inputText;
+            &::placeholder{
+                color: $inputText;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 1rem;
+            }
+            &:focus{
+                outline: none;
+                background: #f7f1e3;
+            }
+        }
+        .flex-column{
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            @media(max-width:$md2){
+                width: 100%;
+            }
+        }
+        textarea{
+            display: block;
+            width: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            border: none;
+            color: $inputText;
+            &::placeholder{
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 1rem;
+                color: $inputText;
+            }
+            &:focus{
+                outline: none;
+                background: #f7f1e3;
+            }
+        }
+        @media(max-width:$md2){
+            flex-direction: column;
+        }
+    }
+    .form-btn{
+        border-radius: 5px;
+        display: inline-block;
+        text-align: center;
+        margin-top: 30px;
+        padding: 20px 40px;
+        border: none;
+        background: $primary;
+        color: #fff;
+        font-weight: 700;
+        font-size: rem(18px);
+        transition: background .3s;
+        &:hover{
+            background: darken($primary, 16%);
+        }
+    }
+}

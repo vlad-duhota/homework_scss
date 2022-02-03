@@ -1,0 +1,122 @@
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex($type, $jus, $align) {
+    @if $type == flex {
+        display: flex;
+        justify-content: $jus;
+        align-items: $align;
+    }
+
+    @if $type == inline-flex {
+        display: inline-flex;
+        justify-content: $jus;
+        align-items: $align;
+    }
+}
+
+@mixin flex-wrap {
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+@mixin absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@function rem($fz) {
+    $rem:($fz / $defaultFontSize);
+    @return  (floor($rem * 10) / 10) + rem;
+}
+
+@function em($value, $fz) {
+    $em:($value / $fz);
+    @return  (floor($em * 10) / 10) + em;
+}
+
+
+@function perc($w1, $w2) {
+    @return floor($w2 / $w1) * 10%;
+}
+
+@mixin сentering-xy() { 
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); 
+} 
+
+@mixin сentering-x() { 
+    position: absolute; left: 50%; transform: translateX(-50%); 
+} 
+
+@mixin сentering-y() { 
+    position: absolute; top: 50%; transform: translateY(-50%); 
+}
+
+@mixin triangle($width, $direction, $color){
+     width: 0; 
+     height: 0; 
+     @if $direction == up { 
+         border-left: $width solid transparent;
+          border-right: $width solid transparent;
+           border-bottom: $width solid $color; 
+    } 
+
+    @if $direction == down { 
+        border-left: $width solid transparent;
+         border-right: $width solid transparent;
+          border-top: $width solid $color; 
+    
+    
+    }
+    @if $direction == left { 
+        border-top: $width solid transparent;
+         border-bottom: $width solid transparent;
+          border-right: $width solid $color; 
+    } 
+
+    @if $direction == right {
+         border-top: $width solid transparent;
+          border-bottom: $width solid transparent;
+           border-left: $width solid $color; 
+    } 
+}
+
+
+
+@mixin font-face($font-family, $url, $weight) {
+    @font-face {
+      font-family: "#{$font-family}";
+      src: url('../fonts/#{$url}.woff2') format("woff2"),
+      url('../fonts/#{$url}.woff');
+      font-weight: #{$weight};
+      font-display: swap;
+    }
+  }
+  
+  @mixin pseudo($top, $left){
+      content: '';
+      display: block;
+      position: absolute;
+      top: $top;
+      left: $left;
+  }
+
+    @mixin image-set($pathToImage) {
+        background-image: url("#{$pathToImage}.jpg");
+        /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+        background-image: image-set(
+        /* stylelint-disable-next-line function-comma-newline-after */
+        "#{$pathToImage}.avif"type("image/avif"),
+        "#{$pathToImage}.webp"type("image/webp"),
+        "#{$pathToImage}.jpg"type("image/jpg")
+        );
+    }
+
+    @mixin bg-cover {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
