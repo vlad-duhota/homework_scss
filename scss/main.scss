@@ -9,10 +9,10 @@
 
 .services{
     padding: 120px 0;
+    text-align: center;
     .services-list{
         @include flex-wrap;
         gap: 55px;
-        text-align: center;
         margin-top: 80px;
         @media(max-width:$md2){
             justify-content: center;
@@ -62,8 +62,10 @@
 
 .contact{
     padding: 100px 0;
-    @include image-set("../img/map");
-    @include bg-cover();
+    background: url('../img/map.png') right bottom / auto no-repeat;
+    background-attachment: fixed;
+    background-color: #222;
+    text-align: center;
     .section-title{
         color: #fff;
     }
@@ -71,7 +73,6 @@
 
 form{
     margin-top: 80px;
-    text-align: center;
     .flex-row{
         display: flex;
         gap: 30px;
@@ -81,7 +82,8 @@ form{
             padding: 20px;
             border-radius: 5px;
             border: none;
-            color: $inputText;
+            font-size: 1rem;
+            color: #333;
             &::placeholder{
                 color: $inputText;
                 text-transform: uppercase;
@@ -95,20 +97,24 @@ form{
         }
         .flex-column{
             width: 50%;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
+            &:first-child{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
             @media(max-width:$md2){
                 width: 100%;
             }
         }
         textarea{
-            display: block;
+            resize: none;
+            height: 100%;
             width: 100%;
             padding: 20px;
             border-radius: 5px;
             border: none;
-            color: $inputText;
+            font-size: 1rem;
+            color: #333;
             &::placeholder{
                 text-transform: uppercase;
                 font-weight: 700;
