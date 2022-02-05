@@ -66,6 +66,9 @@
     background-attachment: fixed;
     background-color: #222;
     text-align: center;
+    @media (max-width:1024px) {
+        background-image: none;
+    }
     .section-title{
         color: #fff;
     }
